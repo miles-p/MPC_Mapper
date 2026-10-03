@@ -26,6 +26,7 @@ LED output (host -> device):
 from __future__ import annotations
 
 import re
+import sys
 import threading
 from dataclasses import dataclass
 from typing import Callable, Optional
@@ -34,6 +35,15 @@ try:
     import mido
 except ImportError:  # pragma: no cover - allows the GUI to load without mido
     mido = None
+
+# MIDI port backend: WinMM via ctypes on Windows (python-rtmidi has no Windows
+# wheels for current Python versions), mido's rtmidi backend elsewhere.
+_ports = mido
+if mido is not None and sys.platform == "win32":
+    try:
+        from . import winmm as _ports
+    except (ImportError, OSError):  # pragma: no cover
+        pass
 
 # --------------------------------------------------------------------------- #
 # Control layout
@@ -226,10 +236,10 @@ FaderCallback = Callable[[str, int], None]
 
 
 def list_ports() -> tuple[list[str], list[str]]:
-    if mido is None:
+    if _ports is None:
         return [], []
     try:
-        return mido.get_input_names(), mido.get_output_names()
+        return _ports.get_input_names(), _ports.get_output_names()
     except Exception:
         return [], []
 
@@ -241,8 +251,9 @@ def _is_secondary_port(name: str) -> bool:
 
 
 def port_base_name(name: str) -> str:
-    """Port name without the volatile index rtmidi appends ("APC mini mk2 1" on
-    Windows, "... Contr 24:0" on Linux), which can change between sessions."""
+    """Port name without the volatile client/port numbers ("... Contr 24:0" on
+    Linux, "APC mini mk2 1" from rtmidi on Windows), which can change between
+    sessions."""
     return re.sub(r"\s+\d+(:\d+)?$", "", name.strip())
 
 
@@ -265,9 +276,9 @@ def guess_port(names: list[str]) -> Optional[str]:
     if not apc:
         return None
     # On Linux ALSA the ports are e.g. "APC mini mk2:APC mini mk2 APC mini mk2 Contr 24:0"
-    # and "... APC mini mk2 Notes 24:1". On Windows (WinMM) they are
-    # "APC mini mk2 0" and "MIDIIN2 (APC mini mk2) 1"; Windows MIDI Services
-    # names them "APC mini mk2 Control" / "APC mini mk2 Notes".
+    # and "... APC mini mk2 Notes 24:1". On Windows (WinMM) they are "APC mini mk2"
+    # and "MIDIIN2 (APC mini mk2)"; Windows MIDI Services names them
+    # "APC mini mk2 Control" / "APC mini mk2 Notes".
     for n in apc:
         if "contr" in n.lower():
             return n
@@ -304,14 +315,14 @@ class APCMini:
 
     def open(self, in_name: Optional[str], out_name: Optional[str]) -> None:
         self.close()
-        if mido is None:
+        if _ports is None:
             raise RuntimeError("mido / python-rtmidi not installed")
         try:
             if in_name:
-                self.inport = mido.open_input(in_name, callback=self._on_midi)
+                self.inport = _ports.open_input(in_name, callback=self._on_midi)
                 self.in_name = in_name
             if out_name:
-                self.outport = mido.open_output(out_name)
+                self.outport = _ports.open_output(out_name)
                 self.out_name = out_name
         except Exception:
             self.close()

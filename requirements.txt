@@ -1,4 +1,7 @@
-PySide6>=6.5
+# Only QtCore/QtGui/QtWidgets are used, so the much smaller Essentials wheel is enough.
+PySide6-Essentials>=6.5
 mido>=1.3
-python-rtmidi>=1.5
+# Windows uses the built-in WinMM backend (mpc_mapper/winmm.py) instead:
+# python-rtmidi has no Windows wheels for current Python versions.
+python-rtmidi>=1.5; sys_platform != "win32"
 python-osc>=1.8
