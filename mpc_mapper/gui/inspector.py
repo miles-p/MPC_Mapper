@@ -10,7 +10,7 @@ from PySide6.QtWidgets import (QCheckBox, QComboBox, QDoubleSpinBox, QFormLayout
 
 from .. import apc
 from ..model import CATALOG_BY_ID, FEEDBACK_SOURCES, Assignment, Mapping
-from .widgets import PaletteButton
+from .widgets import PaletteButton, mono_font
 
 
 class Inspector(QWidget):
@@ -60,7 +60,8 @@ class Inspector(QWidget):
         f.addRow(self.osc_fader)
         self.preview = QLabel()
         self.preview.setWordWrap(True)
-        self.preview.setStyleSheet("color: #7fbf7f; font-family: monospace; font-size: 10px;")
+        self.preview.setFont(mono_font(8))
+        self.preview.setStyleSheet("color: #7fbf7f;")
         f.addRow(self.preview)
         help_ = QLabel("Placeholders: {target} {page} {exec} {value}")
         help_.setStyleSheet("color: #888; font-size: 10px;")

@@ -25,6 +25,7 @@ LED output (host -> device):
 """
 from __future__ import annotations
 
+import re
 import threading
 from dataclasses import dataclass
 from typing import Callable, Optional
@@ -233,18 +234,45 @@ def list_ports() -> tuple[list[str], list[str]]:
         return [], []
 
 
+def _is_secondary_port(name: str) -> bool:
+    """Windows (WinMM) names a USB device's 2nd port "MIDIIN2 (APC mini mk2)" /
+    "MIDIOUT2 (...)"; for the APC that is the Notes port."""
+    return re.match(r"midi(in|out)\d+\s*\(", name.strip().lower()) is not None
+
+
+def port_base_name(name: str) -> str:
+    """Port name without the volatile index rtmidi appends ("APC mini mk2 1" on
+    Windows, "... Contr 24:0" on Linux), which can change between sessions."""
+    return re.sub(r"\s+\d+(:\d+)?$", "", name.strip())
+
+
+def match_port(saved: str, names: list[str]) -> Optional[str]:
+    """Find a previously saved port again, even if its index has changed."""
+    if not saved:
+        return None
+    if saved in names:
+        return saved
+    base = port_base_name(saved)
+    for n in names:
+        if port_base_name(n) == base:
+            return n
+    return None
+
+
 def guess_port(names: list[str]) -> Optional[str]:
     """Pick the APC mini mk2 *Control* port (the Notes port is for note mode)."""
     apc = [n for n in names if "apc" in n.lower() and "mini" in n.lower()]
     if not apc:
         return None
     # On Linux ALSA the ports are e.g. "APC mini mk2:APC mini mk2 APC mini mk2 Contr 24:0"
-    # and "... APC mini mk2 Notes 24:1"; on Windows "APC mini mk2 Control".
+    # and "... APC mini mk2 Notes 24:1". On Windows (WinMM) they are
+    # "APC mini mk2 0" and "MIDIIN2 (APC mini mk2) 1"; Windows MIDI Services
+    # names them "APC mini mk2 Control" / "APC mini mk2 Notes".
     for n in apc:
         if "contr" in n.lower():
             return n
     for n in apc:
-        if "note" not in n.lower():
+        if "note" not in n.lower() and not _is_secondary_port(n):
             return n
     return apc[0]
 

@@ -25,8 +25,36 @@ python3 -m venv .venv
 .venv/bin/python -m mpc_mapper        # or ./run.sh
 ```
 
-On Linux the APC shows up as `APC mini mk2 … Contr…` (the *Control* port, which
-carries pads, buttons, faders and LEDs). The app picks it automatically.
+Settings (last file, chosen ports) are stored with `QSettings`: the registry
+on Windows, `~/.config/MPCMapper` on Linux.
+
+### Windows
+
+Install Python 3.9 or newer from [python.org](https://www.python.org/downloads/)
+(tick *Add python.exe to PATH*), then double-click **`run.bat`**, or from a
+command prompt:
+
+```bat
+cd MPC_Mapper
+py -3 -m venv .venv
+.venv\Scripts\pip install -r requirements.txt
+.venv\Scripts\python -m mpc_mapper
+```
+
+* The APC mini mk2 is class compliant; no Akai driver is needed.
+* Windows lets only **one program at a time** open a MIDI port. Close other
+  software that uses the APC (DAW, MIDI monitor, grandMA3 onPC MIDI input)
+  before connecting.
+* The first time you click *Connect MA3*, Windows Firewall asks whether Python
+  may receive network traffic. Allow it on the network the console is on,
+  or the app receives no feedback on the listen port (8001).
+
+### MIDI ports
+
+On Linux the APC shows up as `APC mini mk2 … Contr…` and on Windows as
+`APC mini mk2 0` (the second port, `MIDIIN2 (APC mini mk2)`, is the Notes
+port). The app picks the *Control* port, which carries pads, buttons, faders
+and LEDs, automatically.
 
 ## How it talks to grandMA3
 

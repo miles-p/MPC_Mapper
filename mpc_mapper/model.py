@@ -294,12 +294,12 @@ class Mapping:
         return Mapping(assignments=a, settings=s)
 
     def save(self, path: str) -> None:
-        with open(path, "w") as f:
+        with open(path, "w", encoding="utf-8") as f:
             json.dump(self.to_json(), f, indent=2)
 
     @staticmethod
     def load(path: str) -> "Mapping":
-        with open(path) as f:
+        with open(path, encoding="utf-8") as f:
             return Mapping.from_json(json.load(f))
 
     def watched_executors(self, current_page: int) -> set[tuple[int, int]]:
