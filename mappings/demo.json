@@ -1,0 +1,1115 @@
+{
+  "version": 1,
+  "settings": {
+    "ma3_host": "127.0.0.1",
+    "ma3_port": 8000,
+    "listen_port": 8001,
+    "osc_prefix": "gma3",
+    "midi_in": "",
+    "midi_out": "",
+    "fader_deadband": 0,
+    "fader_rate_hz": 40.0
+  },
+  "assignments": {
+    "pad:56": {
+      "name": "Go+ 201",
+      "catalog_id": "exec.go",
+      "page": 0,
+      "exec": 201,
+      "press_cmd": "Go+ {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 23,
+        "off_mode": 6,
+        "on_color": 21,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:48": {
+      "name": "Go- 201",
+      "catalog_id": "exec.goback",
+      "page": 0,
+      "exec": 201,
+      "press_cmd": "Go- {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 11,
+        "off_mode": 6,
+        "on_color": 9,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:40": {
+      "name": "Toggle 201",
+      "catalog_id": "exec.toggle",
+      "page": 0,
+      "exec": 201,
+      "press_cmd": "Toggle {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 47,
+        "off_mode": 6,
+        "on_color": 45,
+        "on_mode": 9,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:32": {
+      "name": "Flash 201",
+      "catalog_id": "exec.flash",
+      "page": 0,
+      "exec": 201,
+      "press_cmd": "Flash On {target}",
+      "release_cmd": "Flash Off {target}",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 1,
+        "off_mode": 6,
+        "on_color": 3,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "fader:0": {
+      "name": "Fader Master 201",
+      "catalog_id": "fader.master",
+      "page": 0,
+      "exec": 201,
+      "press_cmd": "",
+      "release_cmd": "",
+      "value_cmd": "FaderMaster {target} At {value}",
+      "osc_fader": true,
+      "osc_key": false,
+      "led": {
+        "source": "exec_fader",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "track:0": {
+      "name": "Off 201",
+      "catalog_id": "exec.off",
+      "page": 0,
+      "exec": 201,
+      "press_cmd": "Off {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:57": {
+      "name": "Go+ 202",
+      "catalog_id": "exec.go",
+      "page": 0,
+      "exec": 202,
+      "press_cmd": "Go+ {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 23,
+        "off_mode": 6,
+        "on_color": 21,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:49": {
+      "name": "Go- 202",
+      "catalog_id": "exec.goback",
+      "page": 0,
+      "exec": 202,
+      "press_cmd": "Go- {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 11,
+        "off_mode": 6,
+        "on_color": 9,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:41": {
+      "name": "Toggle 202",
+      "catalog_id": "exec.toggle",
+      "page": 0,
+      "exec": 202,
+      "press_cmd": "Toggle {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 47,
+        "off_mode": 6,
+        "on_color": 45,
+        "on_mode": 9,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:33": {
+      "name": "Flash 202",
+      "catalog_id": "exec.flash",
+      "page": 0,
+      "exec": 202,
+      "press_cmd": "Flash On {target}",
+      "release_cmd": "Flash Off {target}",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 1,
+        "off_mode": 6,
+        "on_color": 3,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "fader:1": {
+      "name": "Fader Master 202",
+      "catalog_id": "fader.master",
+      "page": 0,
+      "exec": 202,
+      "press_cmd": "",
+      "release_cmd": "",
+      "value_cmd": "FaderMaster {target} At {value}",
+      "osc_fader": true,
+      "osc_key": false,
+      "led": {
+        "source": "exec_fader",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "track:1": {
+      "name": "Off 202",
+      "catalog_id": "exec.off",
+      "page": 0,
+      "exec": 202,
+      "press_cmd": "Off {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:58": {
+      "name": "Go+ 203",
+      "catalog_id": "exec.go",
+      "page": 0,
+      "exec": 203,
+      "press_cmd": "Go+ {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 23,
+        "off_mode": 6,
+        "on_color": 21,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:50": {
+      "name": "Go- 203",
+      "catalog_id": "exec.goback",
+      "page": 0,
+      "exec": 203,
+      "press_cmd": "Go- {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 11,
+        "off_mode": 6,
+        "on_color": 9,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:42": {
+      "name": "Toggle 203",
+      "catalog_id": "exec.toggle",
+      "page": 0,
+      "exec": 203,
+      "press_cmd": "Toggle {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 47,
+        "off_mode": 6,
+        "on_color": 45,
+        "on_mode": 9,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:34": {
+      "name": "Flash 203",
+      "catalog_id": "exec.flash",
+      "page": 0,
+      "exec": 203,
+      "press_cmd": "Flash On {target}",
+      "release_cmd": "Flash Off {target}",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 1,
+        "off_mode": 6,
+        "on_color": 3,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "fader:2": {
+      "name": "Fader Master 203",
+      "catalog_id": "fader.master",
+      "page": 0,
+      "exec": 203,
+      "press_cmd": "",
+      "release_cmd": "",
+      "value_cmd": "FaderMaster {target} At {value}",
+      "osc_fader": true,
+      "osc_key": false,
+      "led": {
+        "source": "exec_fader",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "track:2": {
+      "name": "Off 203",
+      "catalog_id": "exec.off",
+      "page": 0,
+      "exec": 203,
+      "press_cmd": "Off {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:59": {
+      "name": "Go+ 204",
+      "catalog_id": "exec.go",
+      "page": 0,
+      "exec": 204,
+      "press_cmd": "Go+ {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 23,
+        "off_mode": 6,
+        "on_color": 21,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:51": {
+      "name": "Go- 204",
+      "catalog_id": "exec.goback",
+      "page": 0,
+      "exec": 204,
+      "press_cmd": "Go- {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 11,
+        "off_mode": 6,
+        "on_color": 9,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:43": {
+      "name": "Toggle 204",
+      "catalog_id": "exec.toggle",
+      "page": 0,
+      "exec": 204,
+      "press_cmd": "Toggle {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 47,
+        "off_mode": 6,
+        "on_color": 45,
+        "on_mode": 9,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:35": {
+      "name": "Flash 204",
+      "catalog_id": "exec.flash",
+      "page": 0,
+      "exec": 204,
+      "press_cmd": "Flash On {target}",
+      "release_cmd": "Flash Off {target}",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 1,
+        "off_mode": 6,
+        "on_color": 3,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "fader:3": {
+      "name": "Fader Master 204",
+      "catalog_id": "fader.master",
+      "page": 0,
+      "exec": 204,
+      "press_cmd": "",
+      "release_cmd": "",
+      "value_cmd": "FaderMaster {target} At {value}",
+      "osc_fader": true,
+      "osc_key": false,
+      "led": {
+        "source": "exec_fader",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "track:3": {
+      "name": "Off 204",
+      "catalog_id": "exec.off",
+      "page": 0,
+      "exec": 204,
+      "press_cmd": "Off {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:60": {
+      "name": "Go+ 205",
+      "catalog_id": "exec.go",
+      "page": 0,
+      "exec": 205,
+      "press_cmd": "Go+ {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 23,
+        "off_mode": 6,
+        "on_color": 21,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:52": {
+      "name": "Go- 205",
+      "catalog_id": "exec.goback",
+      "page": 0,
+      "exec": 205,
+      "press_cmd": "Go- {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 11,
+        "off_mode": 6,
+        "on_color": 9,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:44": {
+      "name": "Toggle 205",
+      "catalog_id": "exec.toggle",
+      "page": 0,
+      "exec": 205,
+      "press_cmd": "Toggle {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 47,
+        "off_mode": 6,
+        "on_color": 45,
+        "on_mode": 9,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:36": {
+      "name": "Flash 205",
+      "catalog_id": "exec.flash",
+      "page": 0,
+      "exec": 205,
+      "press_cmd": "Flash On {target}",
+      "release_cmd": "Flash Off {target}",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 1,
+        "off_mode": 6,
+        "on_color": 3,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "fader:4": {
+      "name": "Fader Master 205",
+      "catalog_id": "fader.master",
+      "page": 0,
+      "exec": 205,
+      "press_cmd": "",
+      "release_cmd": "",
+      "value_cmd": "FaderMaster {target} At {value}",
+      "osc_fader": true,
+      "osc_key": false,
+      "led": {
+        "source": "exec_fader",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "track:4": {
+      "name": "Off 205",
+      "catalog_id": "exec.off",
+      "page": 0,
+      "exec": 205,
+      "press_cmd": "Off {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:61": {
+      "name": "Go+ 206",
+      "catalog_id": "exec.go",
+      "page": 0,
+      "exec": 206,
+      "press_cmd": "Go+ {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 23,
+        "off_mode": 6,
+        "on_color": 21,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:53": {
+      "name": "Go- 206",
+      "catalog_id": "exec.goback",
+      "page": 0,
+      "exec": 206,
+      "press_cmd": "Go- {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 11,
+        "off_mode": 6,
+        "on_color": 9,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:45": {
+      "name": "Toggle 206",
+      "catalog_id": "exec.toggle",
+      "page": 0,
+      "exec": 206,
+      "press_cmd": "Toggle {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 47,
+        "off_mode": 6,
+        "on_color": 45,
+        "on_mode": 9,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:37": {
+      "name": "Flash 206",
+      "catalog_id": "exec.flash",
+      "page": 0,
+      "exec": 206,
+      "press_cmd": "Flash On {target}",
+      "release_cmd": "Flash Off {target}",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 1,
+        "off_mode": 6,
+        "on_color": 3,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "fader:5": {
+      "name": "Fader Master 206",
+      "catalog_id": "fader.master",
+      "page": 0,
+      "exec": 206,
+      "press_cmd": "",
+      "release_cmd": "",
+      "value_cmd": "FaderMaster {target} At {value}",
+      "osc_fader": true,
+      "osc_key": false,
+      "led": {
+        "source": "exec_fader",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "track:5": {
+      "name": "Off 206",
+      "catalog_id": "exec.off",
+      "page": 0,
+      "exec": 206,
+      "press_cmd": "Off {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:62": {
+      "name": "Go+ 207",
+      "catalog_id": "exec.go",
+      "page": 0,
+      "exec": 207,
+      "press_cmd": "Go+ {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 23,
+        "off_mode": 6,
+        "on_color": 21,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:54": {
+      "name": "Go- 207",
+      "catalog_id": "exec.goback",
+      "page": 0,
+      "exec": 207,
+      "press_cmd": "Go- {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 11,
+        "off_mode": 6,
+        "on_color": 9,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:46": {
+      "name": "Toggle 207",
+      "catalog_id": "exec.toggle",
+      "page": 0,
+      "exec": 207,
+      "press_cmd": "Toggle {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 47,
+        "off_mode": 6,
+        "on_color": 45,
+        "on_mode": 9,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:38": {
+      "name": "Flash 207",
+      "catalog_id": "exec.flash",
+      "page": 0,
+      "exec": 207,
+      "press_cmd": "Flash On {target}",
+      "release_cmd": "Flash Off {target}",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 1,
+        "off_mode": 6,
+        "on_color": 3,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "fader:6": {
+      "name": "Fader Master 207",
+      "catalog_id": "fader.master",
+      "page": 0,
+      "exec": 207,
+      "press_cmd": "",
+      "release_cmd": "",
+      "value_cmd": "FaderMaster {target} At {value}",
+      "osc_fader": true,
+      "osc_key": false,
+      "led": {
+        "source": "exec_fader",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "track:6": {
+      "name": "Off 207",
+      "catalog_id": "exec.off",
+      "page": 0,
+      "exec": 207,
+      "press_cmd": "Off {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:63": {
+      "name": "Go+ 208",
+      "catalog_id": "exec.go",
+      "page": 0,
+      "exec": 208,
+      "press_cmd": "Go+ {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 23,
+        "off_mode": 6,
+        "on_color": 21,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:55": {
+      "name": "Go- 208",
+      "catalog_id": "exec.goback",
+      "page": 0,
+      "exec": 208,
+      "press_cmd": "Go- {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 11,
+        "off_mode": 6,
+        "on_color": 9,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:47": {
+      "name": "Toggle 208",
+      "catalog_id": "exec.toggle",
+      "page": 0,
+      "exec": 208,
+      "press_cmd": "Toggle {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 47,
+        "off_mode": 6,
+        "on_color": 45,
+        "on_mode": 9,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "pad:39": {
+      "name": "Flash 208",
+      "catalog_id": "exec.flash",
+      "page": 0,
+      "exec": 208,
+      "press_cmd": "Flash On {target}",
+      "release_cmd": "Flash Off {target}",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 1,
+        "off_mode": 6,
+        "on_color": 3,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "fader:7": {
+      "name": "Fader Master 208",
+      "catalog_id": "fader.master",
+      "page": 0,
+      "exec": 208,
+      "press_cmd": "",
+      "release_cmd": "",
+      "value_cmd": "FaderMaster {target} At {value}",
+      "osc_fader": true,
+      "osc_key": false,
+      "led": {
+        "source": "exec_fader",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "track:7": {
+      "name": "Off 208",
+      "catalog_id": "exec.off",
+      "page": 0,
+      "exec": 208,
+      "press_cmd": "Off {target}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "exec_active",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "scene:0": {
+      "name": "Page 1",
+      "catalog_id": "page.goto",
+      "page": 1,
+      "exec": 201,
+      "press_cmd": "Page {page}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "page",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "scene:1": {
+      "name": "Page 2",
+      "catalog_id": "page.goto",
+      "page": 2,
+      "exec": 201,
+      "press_cmd": "Page {page}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "page",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "scene:2": {
+      "name": "Page 3",
+      "catalog_id": "page.goto",
+      "page": 3,
+      "exec": 201,
+      "press_cmd": "Page {page}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "page",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "scene:3": {
+      "name": "Page 4",
+      "catalog_id": "page.goto",
+      "page": 4,
+      "exec": 201,
+      "press_cmd": "Page {page}",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "page",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "scene:6": {
+      "name": "Page -",
+      "catalog_id": "page.prev",
+      "page": 0,
+      "exec": 201,
+      "press_cmd": "Previous Page",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "press",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "scene:7": {
+      "name": "Page +",
+      "catalog_id": "page.next",
+      "page": 0,
+      "exec": 201,
+      "press_cmd": "Next Page",
+      "release_cmd": "",
+      "value_cmd": "",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "press",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    },
+    "fader:8": {
+      "name": "Grand Master",
+      "catalog_id": "master.grand",
+      "page": 0,
+      "exec": 201,
+      "press_cmd": "",
+      "release_cmd": "",
+      "value_cmd": "Master 2.1 At {value}",
+      "osc_fader": false,
+      "osc_key": false,
+      "led": {
+        "source": "static",
+        "off_color": 0,
+        "off_mode": 6,
+        "on_color": 1,
+        "on_mode": 6,
+        "use_ma3_color": false,
+        "ma3_dim": 0.15
+      }
+    }
+  }
+}

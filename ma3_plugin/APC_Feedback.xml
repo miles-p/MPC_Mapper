@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GMA3 DataVersion="2.0.2.0">
+    <UserPlugin Name="APC_Feedback" Version="1.0.0.0">
+        <ComponentLua Name="APC_Feedback" FileName="APC_Feedback.lua"/>
+    </UserPlugin>
+</GMA3>
