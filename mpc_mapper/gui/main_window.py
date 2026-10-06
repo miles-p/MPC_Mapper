@@ -3,10 +3,11 @@ from __future__ import annotations
 
 import copy
 import os
+import sys
 from typing import Optional
 
 from PySide6.QtCore import QSettings, Qt, QTimer
-from PySide6.QtGui import QAction, QFont, QKeySequence
+from PySide6.QtGui import QAction, QKeySequence
 from PySide6.QtWidgets import (QCheckBox, QComboBox, QFileDialog, QHBoxLayout, QInputDialog,
                                QLabel, QLineEdit, QMainWindow, QMessageBox, QPlainTextEdit,
                                QPushButton, QSpinBox, QSplitter, QTabWidget, QTextBrowser,
@@ -19,6 +20,7 @@ from .apc_widget import APCWidget
 from .catalog import CatalogPanel
 from .inspector import Inspector
 from .led_lab import LedLab
+from .widgets import mono_font
 
 MA3_SETUP_HTML = """
 <h3>grandMA3 setup (one time)</h3>
@@ -241,7 +243,7 @@ class MainWindow(QMainWindow):
         self.log_view = QPlainTextEdit()
         self.log_view.setReadOnly(True)
         self.log_view.setMaximumBlockCount(3000)
-        self.log_view.setFont(QFont("Monospace", 9))
+        self.log_view.setFont(mono_font(9))
         clear.clicked.connect(self.log_view.clear)
         v.addWidget(self.log_view)
         return w
@@ -258,7 +260,7 @@ class MainWindow(QMainWindow):
             combo.addItem("(none)", "")
             for n in names:
                 combo.addItem(n, n)
-            pick = saved if saved in names else apc.guess_port(names)
+            pick = apc.match_port(saved, names) or apc.guess_port(names)
             if pick:
                 combo.setCurrentIndex(combo.findData(pick))
 
@@ -269,7 +271,11 @@ class MainWindow(QMainWindow):
             try:
                 self.engine.connect_midi(self.midi_in.currentData(), self.midi_out.currentData())
             except Exception as e:
-                QMessageBox.warning(self, "MIDI", f"Could not open MIDI ports:\n{e}")
+                hint = ("\n\nOn Windows a MIDI port can only be used by one program at a "
+                        "time. Close other software using the APC (DAW, MIDI monitor, "
+                        "grandMA3 onPC MIDI input) and try again."
+                        if sys.platform == "win32" else "")
+                QMessageBox.warning(self, "MIDI", f"Could not open MIDI ports:\n{e}{hint}")
         self._update_status()
 
     def _connect_ma3(self) -> None:

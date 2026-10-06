@@ -2,14 +2,31 @@
 from __future__ import annotations
 
 from PySide6.QtCore import QPoint, QRect, QSize, Qt, Signal
-from PySide6.QtGui import QColor, QPainter, QPen
-from PySide6.QtWidgets import QPushButton, QToolTip, QVBoxLayout, QWidget, QDialog
+from PySide6.QtGui import QColor, QFont, QFontDatabase, QPainter, QPen
+from PySide6.QtWidgets import (QApplication, QDialog, QPushButton, QToolTip, QVBoxLayout,
+                               QWidget)
 
 from .. import apc
 
 
 def qcolor(rgb) -> QColor:
     return QColor(*rgb)
+
+
+def ui_font(point_size: float, bold: bool = False) -> QFont:
+    """The platform's UI font at a given size (generic names like "Sans" only
+    resolve on Linux/fontconfig, so ask Qt for the real default family)."""
+    f = QFont(QApplication.font())
+    f.setPointSizeF(point_size)
+    f.setBold(bold)
+    return f
+
+
+def mono_font(point_size: float) -> QFont:
+    """The platform's fixed-width font (Consolas on Windows, Menlo on macOS, ...)."""
+    f = QFontDatabase.systemFont(QFontDatabase.FixedFont)
+    f.setPointSizeF(point_size)
+    return f
 
 
 def text_color_for(rgb) -> QColor:

@@ -11,14 +11,14 @@ from __future__ import annotations
 from typing import Callable, Optional
 
 from PySide6.QtCore import QMimeData, QPointF, QRectF, Qt, QTimer, Signal
-from PySide6.QtGui import (QBrush, QColor, QDrag, QFont, QLinearGradient, QPainter,
+from PySide6.QtGui import (QBrush, QColor, QDrag, QLinearGradient, QPainter,
                            QPen)
 from PySide6.QtWidgets import QMenu, QWidget
 
 from .. import apc
 from ..apc import LedState
 from ..model import Mapping
-from .widgets import qcolor, text_color_for
+from .widgets import qcolor, text_color_for, ui_font
 
 MIME_CATALOG = "application/x-ma3-catalog"
 MIME_CONTROL = "application/x-apc-control"
@@ -150,14 +150,14 @@ class APCWidget(QWidget):
         p.setBrush(QBrush(grad))
         p.drawRoundedRect(body, 18, 18)
         p.setPen(QColor("#c8c8c8"))
-        f = QFont("Sans", 15, QFont.Bold)
+        f = ui_font(15, bold=True)
         p.setFont(f)
         p.drawText(QRectF(X0, 22, 300, 30), Qt.AlignLeft | Qt.AlignVCenter, "AKAI  APC mini")
         p.setPen(QColor("#e05a2a"))
-        p.setFont(QFont("Sans", 11, QFont.Bold))
+        p.setFont(ui_font(11, bold=True))
         p.drawText(QRectF(X0 + 178, 24, 60, 30), Qt.AlignLeft | Qt.AlignVCenter, "mk2")
         p.setPen(QColor("#8a8d94"))
-        p.setFont(QFont("Sans", 9))
+        p.setFont(ui_font(9))
         p.drawText(QRectF(X0 + 240, 22, W - X0 - 274, 30), Qt.AlignRight | Qt.AlignVCenter,
                    "Shift+click = simulate · drag = move · Ctrl+drag = copy")
 
@@ -212,7 +212,7 @@ class APCWidget(QWidget):
         text = self._label(c)
         if text:
             p.setPen(text_color_for(rgb) if lit else QColor("#d0d0d0"))
-            p.setFont(QFont("Sans", 7))
+            p.setFont(ui_font(7))
             p.drawText(rect.adjusted(3, 3, -3, -3), Qt.AlignCenter | Qt.TextWordWrap, text)
         self._outline(p, c, rect, 6)
 
@@ -233,7 +233,7 @@ class APCWidget(QWidget):
         text = self._label(c) or ("SHIFT" if kind == "shift" else "")
         if text:
             p.setPen(QColor("#111") if on else QColor("#d8d8d8"))
-            p.setFont(QFont("Sans", 6))
+            p.setFont(ui_font(6))
             p.drawText(rect.adjusted(2, 0, -2, 0), Qt.AlignCenter | Qt.TextWordWrap, text)
         self._outline(p, c, rect, 4)
 
@@ -256,7 +256,7 @@ class APCWidget(QWidget):
         p.drawLine(QPointF(cap.left() + 4, cy), QPointF(cap.right() - 4, cy))
         text = self._label(c) or ("Master" if c == "fader:8" else "")
         p.setPen(QColor("#d8d8d8"))
-        p.setFont(QFont("Sans", 7))
+        p.setFont(ui_font(7))
         p.drawText(QRectF(rect.left() - 4, rect.bottom() + 2, rect.width() + 8, 30),
                    Qt.AlignHCenter | Qt.AlignTop | Qt.TextWordWrap, text)
         self._outline(p, c, rect, 6)

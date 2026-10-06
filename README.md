@@ -25,8 +25,39 @@ python3 -m venv .venv
 .venv/bin/python -m mpc_mapper        # or ./run.sh
 ```
 
-On Linux the APC shows up as `APC mini mk2 … Contr…` (the *Control* port, which
-carries pads, buttons, faders and LEDs). The app picks it automatically.
+Settings (last file, chosen ports) are stored with `QSettings`: the registry
+on Windows, `~/.config/MPCMapper` on Linux.
+
+### Windows
+
+Install Python 3.9 or newer from [python.org](https://www.python.org/downloads/)
+(tick *Add python.exe to PATH*), then double-click **`run.bat`**. The first run
+creates a Python environment in `%LOCALAPPDATA%\MPCMapper\venv` and installs
+the requirements; later runs start straight away, and repair the environment
+if a package is missing.
+
+The environment lives outside the project folder because Qt's files have long
+paths, and inside a deep folder such as `Downloads\MPC_Mapper-…\MPC_Mapper-…`
+they go over Windows' 260-character path limit.
+
+MIDI on Windows goes through WinMM directly (`mpc_mapper/winmm.py`, using
+ctypes), so python-rtmidi, which has no Windows wheels for current Python
+versions, is not needed and no compiler is required.
+
+* The APC mini mk2 is class compliant; no Akai driver is needed.
+* Windows lets only **one program at a time** open a MIDI port. Close other
+  software that uses the APC (DAW, MIDI monitor, grandMA3 onPC MIDI input)
+  before connecting.
+* The first time you click *Connect MA3*, Windows Firewall asks whether Python
+  may receive network traffic. Allow it on the network the console is on,
+  or the app receives no feedback on the listen port (8001).
+
+### MIDI ports
+
+On Linux the APC shows up as `APC mini mk2 … Contr…` and on Windows as
+`APC mini mk2` (the second port, `MIDIIN2 (APC mini mk2)`, is the Notes
+port). The app picks the *Control* port, which carries pads, buttons, faders
+and LEDs, automatically.
 
 ## How it talks to grandMA3
 
@@ -110,6 +141,7 @@ then the pads stop working with this app. Shift + Scene 5 goes back to Session m
 
 ```
 mpc_mapper/apc.py          APC mini mk2 protocol, palette, MIDI I/O
+mpc_mapper/winmm.py        Windows MIDI backend (WinMM via ctypes)
 mpc_mapper/ma3.py          OSC client/server for grandMA3
 mpc_mapper/model.py        mapping model + catalogue of MA3 controls
 mpc_mapper/engine.py       runtime: buttons/faders → MA3, feedback → LEDs
